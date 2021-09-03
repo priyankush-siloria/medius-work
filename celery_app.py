@@ -12,7 +12,7 @@ def setup_periodic_tasks(sender, **kwargs):
     Function will execute the crawler every day at 9:30 AM
     command for a help: celery -A exec_crawler worker -l info -B
     """
-    sender.add_periodic_task(crontab(minute='*/1'), exec_func.s(), name='call every minute')
+    sender.add_periodic_task(crontab(hour='*/1'), exec_func.s(), name='call every minute')
 
 
 @app.task
